@@ -20,6 +20,5 @@ this.toSting = function() {
 // character, updating the stored boolean value to true if it was guessed correctly
 
 }
-console.log(Letter);
 
 module.exports = Letter;

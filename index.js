@@ -8,6 +8,8 @@ var wordArray = [
     var totalGuesses = "";
     var target = "";
     var playedAlready = false;
+    var wordObject;
+    var randomSelectionFromWordArray;
 
 
     var selectRandomWord = function() {
@@ -17,11 +19,11 @@ var wordArray = [
 
 
     const playGame = function(){
-        selectRandomWord();
-        //randomSelectionFromWordArray = selectRandomWord();
-        //wordObject = new Word(randomSelectionFromWordArray);
+        
+        randomSelectionFromWordArray = selectRandomWord();
+        wordObject = new Word(randomSelectionFromWordArray);
         console.log('Here is your randomly selected word:');
-        //wordObject.displayWord();
+        wordObject.displayWord();
        // numberOfGuesses = 12;
         //guess();
     };
