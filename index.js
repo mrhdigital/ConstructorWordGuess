@@ -1,4 +1,4 @@
-var Word = require("./Word.js");
+var Word = require('./Word');
 var inquirer = require("inquirer");
 
 var wordArray = [
@@ -10,9 +10,20 @@ var wordArray = [
     var playedAlready = false;
 
 
-    var selectedRandomWord = function() {
+    var selectRandomWord = function() {
         return wordArray[Math.floor(Math.random() *10)];
 
+    };
+
+
+    const playGame = function(){
+        selectRandomWord();
+        //randomSelectionFromWordArray = selectRandomWord();
+        //wordObject = new Word(randomSelectionFromWordArray);
+        console.log('Here is your randomly selected word:');
+        //wordObject.displayWord();
+       // numberOfGuesses = 12;
+        //guess();
     };
 
     const inquire = function(){

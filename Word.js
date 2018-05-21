@@ -3,7 +3,11 @@
 var Letter = require('./Letter');
 
 var Word = function(word) {
-    this.word = word.spilt('').map(function(letter) {
+    this.word = word.split('').map(function(letter){
+
         return new Letter(letter);
     });
 }
+
+
+module.exports = Word;

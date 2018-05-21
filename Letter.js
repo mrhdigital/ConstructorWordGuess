@@ -22,4 +22,4 @@ this.toSting = function() {
 }
 console.log(Letter);
 
-module.export = Letter;
+module.exports = Letter;
