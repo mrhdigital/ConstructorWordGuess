@@ -5,18 +5,49 @@ var wordArray = [
     "toucan","parrot", "hornbill", 
     "woodpecker","penguin","passerine",
     "heron","cuckoo"];
-    var totalGuesses = "";
-    var target = "";
+    
     var playedAlready = false;
-    var wordObject;
-    var randomSelectionFromWordArray;
+var  wordObject;
+var randomSelectionFromWordArray;
+    var numberOfGuessesLeft;
+    var checkGuess;
 
 
     var selectRandomWord = function() {
         return wordArray[Math.floor(Math.random() *10)];
 
     };
-
+   
+    const guess = function(){
+        if (numberOfGuesses > 0) {
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: 'Guess a letter:',
+                    name: "guess"
+                }
+            ]).then(function(answer){
+                checkGuess = wordObject.checkGuess(answer.guess);
+                if (checkGuess.isCorrect === 'Incorrect!') {
+                    numberOfGuesses--;
+                }
+                console.log(checkGuess.isCorrect);
+                wordObject.displayWord();
+                if (checkGuess.guessingComplete) {
+                    console.log('Great job! You guessed it!');
+                    inquire();
+                } else {
+                    console.log(`Guesses left: ${numberOfGuesses}`);
+                    guess();
+                }
+            }).catch(function(error){
+                console.log("Oh boy, it broke: " + error);
+            });
+        } else {
+            console.log('You ran out of guesses!');
+            inquire();
+        }
+    };
 
     const playGame = function(){
         
@@ -24,8 +55,8 @@ var wordArray = [
         wordObject = new Word(randomSelectionFromWordArray);
         console.log('Here is your randomly selected word:');
         wordObject.displayWord();
-       // numberOfGuesses = 12;
-        //guess();
+       numberOfGuesses = 12;
+        guess();
     };
 
     const inquire = function(){
