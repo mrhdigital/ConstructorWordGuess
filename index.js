@@ -41,7 +41,7 @@ const guess = function () {
                 guess();
             }
         }).catch(function (error) {
-            console.log("Oh boy, it broke: " + error);
+            console.log("Oh no, something wrong: " + error);
         });
     } else {
         console.log('You ran out of guesses!');
