@@ -19,7 +19,7 @@ var Letter = function (letter) {
     // A method that takes a character as an argument and checks it against the underlying 
     // character, updating the stored boolean value to true if it was guessed correctly
     this.checkGuess = function (guess) {
-        // var guessedYet = this.guessedYet; var will not work it gives  .split is not defined error
+        // let guessedYet = this.guessedYet; var will not work it gives  .split is not defined error
         let guessedYet = this.guessedYet;
         if (guess.toLowerCase() === this.letter.toLowerCase()) {
             this.guessedYet = true;
